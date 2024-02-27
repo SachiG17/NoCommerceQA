@@ -8,6 +8,8 @@ class Test_001_LoginPage():
     username=ReadConfig.getUsername()
     password=ReadConfig.getpassword()
     logger=LogGen.loggen()
+    @pytest.mark.sanity
+    @pytest.mark.regression
     def test_homepage(self,setup):
         self.logger.info("--------Verifying Home page Title---")
         page_title = self.driver.title
@@ -19,8 +21,7 @@ class Test_001_LoginPage():
             assert False
             self.logger.info("--------Test Case1:Failed.....---")
 
-
-
+    @pytest.mark.regression
     def test_Login(self,setup):
         self.logger.info("--------Opening Log In Page---")
         lp = LoginPage(self.driver)
